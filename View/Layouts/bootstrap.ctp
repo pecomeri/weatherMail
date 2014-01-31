@@ -3,7 +3,6 @@
 <head>
 	<meta charset="utf-8">
 	<title>
-		BoostCake -
 		<?php echo $title_for_layout; ?>
 	</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,9 +43,8 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<?php echo $this->Html->link('BoostCake', array(
-					'plugin' => 'boost_cake',
-					'controller' => 'boost_cake',
+				<?php echo $this->Html->link('WeatherMail', array(
+					'controller' => 'user',
 					'action' => 'index'
 				), array('class' => 'navbar-brand')); ?>
 			</div>

@@ -16,14 +16,22 @@ class UsersController extends AppController {
 	public $components = array('Paginator');
 
     public $layout = 'bootstrap';
+
+    public function beforeFilter() {
+        $this->Auth->allow('index');
+    }
 /**
  * index method
  *
  * @return void
  */
 	public function index() {
-		$this->User->recursive = 0;
-		$this->set('users', $this->Paginator->paginate());
+		if ($this->request->is('post')) {
+			$this->User->create();
+			if ($this->User->save($this->request->data)) {
+				return $this->flash(__('Welcome to WeatherMail!!'), array('action' => 'setting'));
+			}
+		}
 	}
 	public function login() {
 		$this->User->recursive = 0;
